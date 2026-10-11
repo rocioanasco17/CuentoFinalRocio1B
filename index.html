@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Cuentos Infantil</title>
+    <!-- Fuente infantil redondeada desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- Librería PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <!-- Librería PageFlip -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+</head>
+<body>
+
+    <header class="header">
+        <h1>✨ Cuentos Mágicos ✨</h1>
+        
+        <!-- Panel de Accesibilidad -->
+        <div class="accessibility-bar" aria-label="Controles de accesibilidad">
+            <button id="btn-tts" class="acc-btn" title="Escuchar cuento en voz alta">
+                🔊 <span class="btn-text">Lectura en Voz Alta</span>
+            </button>
+            <div class="font-controls">
+                <span class="font-label">Tamaño del cuento:</span>
+                <button id="btn-zoom-in" class="acc-btn font-btn" title="Agrandar cuento">A+</button>
+                <button id="btn-zoom-out" class="acc-btn font-btn" title="Achicar cuento">A-</button>
+            </div>
+        </div>
+
+        <div id="loading">✨ Cargando la magia del cuento... ✨</div>
+    </header>
+
+    <main class="main-container">
+        <!-- Botón Pata de Gato: Anterior -->
+        <button id="btn-prev" class="nav-paw btn-paw-prev" aria-label="Página anterior" title="Página anterior">
+            <svg viewBox="0 0 100 100" class="paw-icon">
+                <!-- Huella de gato -->
+                <path d="M 30,58 C 22,58 15,67 18,78 C 21,88 35,93 50,93 C 65,93 79,88 82,78 C 85,67 78,58 70,58 C 60,58 55,68 50,68 C 45,68 40,58 30,58 Z" fill="white" />
+                <circle cx="20" cy="42" r="10" fill="white" />
+                <circle cx="39" cy="27" r="11" fill="white" />
+                <circle cx="61" cy="27" r="11" fill="white" />
+                <circle cx="80" cy="42" r="10" fill="white" />
+            </svg>
+            <span class="paw-arrow">◀</span>
+        </button>
+
+        <div class="book-container">
+            <div id="flip-book" class="flip-book"></div>
+        </div>
+
+        <!-- Botón Pata de Gato: Siguiente -->
+        <button id="btn-next" class="nav-paw btn-paw-next" aria-label="Página siguiente" title="Página siguiente">
+            <svg viewBox="0 0 100 100" class="paw-icon">
+                <!-- Huella de gato -->
+                <path d="M 30,58 C 22,58 15,67 18,78 C 21,88 35,93 50,93 C 65,93 79,88 82,78 C 85,67 78,58 70,58 C 60,58 55,68 50,68 C 45,68 40,58 30,58 Z" fill="white" />
+                <circle cx="20" cy="42" r="10" fill="white" />
+                <circle cx="39" cy="27" r="11" fill="white" />
+                <circle cx="61" cy="27" r="11" fill="white" />
+                <circle cx="80" cy="42" r="10" fill="white" />
+            </svg>
+            <span class="paw-arrow">▶</span>
+        </button>
+    </main>
+
+    <!-- Paginador descriptivo accesible -->
+    <footer class="footer">
+        <div id="page-counter" class="page-counter">📖 Leyendo el cuento...</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
